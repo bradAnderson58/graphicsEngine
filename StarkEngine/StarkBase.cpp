@@ -16,15 +16,27 @@ int StarkBase::run() {
 		glfwSetKeyCallback(window, callback);
 	}
 
+	// use our shader program when we want to render an object
+	GLuint vertexShader = buildShader("../StarkEngine/default.vs", GL_VERTEX_SHADER);
+	GLuint fragmentShader = buildShader("../StarkEngine/default.fs", GL_FRAGMENT_SHADER);
+	GLuint shaderProgram = buildShaderProgram(vertexShader, fragmentShader);
+	glDeleteShader(vertexShader);
+	glDeleteShader(fragmentShader);
+
+	// set up vertex data (and buffers) and attributes pointers 
 	GLfloat vertices[] = {
 		-0.5f, -0.5f, 0.0f,
 		0.5f, -0.5f, 0.0f,
 		0.0f, 0.5f, 0.0f
 	};
+	GLuint vertexArrayObj;
 	GLuint vertexBufferObject;
+	glGenVertexArrays(1, &vertexArrayObj);
 	glGenBuffers(1, &vertexBufferObject);
 
-	// copy our vertices array in a buffer for OpenGL to use
+	// bind the vertex array object first, then bind and set vertex buffers and attribute pointers
+	glBindVertexArray(vertexArrayObj);
+
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
@@ -32,24 +44,36 @@ int StarkBase::run() {
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 
-	// use our shader program when we want to render an object
-	GLuint vertexShader = buildShader("../StarkEngine/default.vs", GL_VERTEX_SHADER);
-	GLuint fragmentShader = buildShader("../StarkEngine/default.fs", GL_FRAGMENT_SHADER);
-	GLuint shaderProgram = buildShaderProgram(vertexShader, fragmentShader);
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-	glUseProgram(shaderProgram);
+	// Note that this is allowed, the call to glVertexAttribPointer registered VBO as the currently bound vertex buffer object so afterwards we can safely unbind
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// unbind the vertex arrays object
+	glBindVertexArray(0);
+
 	
 	// draw the object
-
+	// eventually
 	
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
+
+
 		// TODO: move this out to a method
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+
+		// draw our first triangle
+		glUseProgram(shaderProgram);
+		glBindVertexArray(vertexArrayObj);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindVertexArray(0);
+
 		glfwSwapBuffers(window);
 	}
+
+	// properly de-allocate all the resources
+	glDeleteVertexArrays(1, &vertexArrayObj);
+	glDeleteBuffers(1, &vertexBufferObject);
 
 	glfwTerminate();
 	return 0;
