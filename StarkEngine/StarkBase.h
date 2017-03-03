@@ -12,6 +12,7 @@
 #include <vector>
 #include <functional>
 
+#include "GraphicsObject.h"
 
 class StarkBase {
 public:
@@ -29,6 +30,7 @@ private:
 	const char *windowLabel;
 	GLFWwindow *window;
 	std::vector<GLFWkeyfun> registeredCallbacks;
+	GraphicsObject obj;
 
 	bool StarkBase::setupGlfw();
 	bool StarkBase::setupGlew();

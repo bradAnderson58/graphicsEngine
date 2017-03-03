@@ -63,6 +63,9 @@
     <ClInclude Include="StarkBase.h">
       <Filter>Header Files\OpenGLWraps</Filter>
     </ClInclude>
+    <ClInclude Include="GraphicsObject.h">
+      <Filter>Header Files\OpenGLWraps</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vectortest.cxx">
@@ -84,6 +87,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StarkBase.cpp">
+      <Filter>Source Files\OpenGLWraps</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsObject.cpp">
       <Filter>Source Files\OpenGLWraps</Filter>
     </ClCompile>
   </ItemGroup>
