@@ -21,8 +21,11 @@ public:
 		windowWidth(width), windowHeight(height), windowLabel(label) { }
 
 	int run();
-	//void setKeyCallback(GLFWkeyfun callback);
 	void setKeyCallback(void callback(GLFWwindow* window, int key, int scancode, int action, int mode));
+
+	void addGraphicsObject(GraphicsObject object) {
+		objects.push_back(object);
+	}
 
 private:
 	int windowHeight;
@@ -30,10 +33,11 @@ private:
 	const char *windowLabel;
 	GLFWwindow *window;
 	std::vector<GLFWkeyfun> registeredCallbacks;
-	GraphicsObject obj;
+	std::vector<GraphicsObject> objects; // TODO: this should be a collection of Graphics Objects - or better yet a Graphics Object Manager
 
-	bool StarkBase::setupGlfw();
-	bool StarkBase::setupGlew();
-	GLuint buildShader(std::string filePath, GLenum shaderType);
-	GLuint buildShaderProgram(GLuint vertexShader, GLuint fragmentShader);
+	bool setupGlfw();
+	bool setupGlew();
+	void initializeObjects();
+	void redrawObjects();
+	void deallocateObjects();
 };

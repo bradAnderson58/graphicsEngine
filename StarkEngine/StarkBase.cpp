@@ -1,6 +1,8 @@
 
 #include "StarkBase.h"
+#include "GraphicsObject.h"
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,17 +17,16 @@ int StarkBase::run() {
 	for (GLFWkeyfun callback : registeredCallbacks) {
 		glfwSetKeyCallback(window, callback);
 	}
-	//GLuint shader = glCreateShader(GL_VERTEX_SHADER);
-	obj.init();
+	initializeObjects();
 
 	// draw the object each iteration
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
-		obj.redraw();
+		redrawObjects();
 		glfwSwapBuffers(window);
 	}
 
-	obj.deallocate();
+	deallocateObjects();
 	glfwTerminate();
 	return 0;
 }
@@ -66,4 +67,22 @@ bool StarkBase::setupGlew() {
 	glfwGetFramebufferSize(window, &width, &height);
 	glViewport(0, 0, width, height);
 	return true;
+}
+
+void StarkBase::initializeObjects() {
+	std::for_each(objects.begin(), objects.end(), [](GraphicsObject& object) {
+		object.init();
+	});
+}
+
+void StarkBase::redrawObjects() {
+	std::for_each(objects.begin(), objects.end(), [](GraphicsObject& object) {
+		object.redraw();
+	});
+}
+
+void StarkBase::deallocateObjects() {
+	std::for_each(objects.begin(), objects.end(), [](GraphicsObject& object) {
+		object.deallocate();
+	});
 }
