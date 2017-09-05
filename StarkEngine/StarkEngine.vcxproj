@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="GraphicsObject.h" />
+    <ClInclude Include="GraphicsObjectManager.h" />
     <ClInclude Include="StarkBase.h" />
     <ClInclude Include="MathFunctions.h" />
     <ClInclude Include="MathFunctionsTest.h" />
@@ -163,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicsObject.cpp" />
+    <ClCompile Include="GraphicsObjectManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MathFunctions.cpp" />
     <ClCompile Include="StarkBase.cpp" />

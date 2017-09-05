@@ -8,11 +8,8 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include <string>
-#include <vector>
-#include <functional>
 
-#include "GraphicsObject.h"
+#include "GraphicsObjectManager.h"
 
 class StarkBase {
 public:
@@ -27,7 +24,7 @@ public:
 	int run();
 	void setKeyCallback(void callback(GLFWwindow* window, int key, int scancode, int action, int mode));
 
-	GraphicsObject *createNewGraphicsObject();
+	GraphicsObject* createNewGraphicsObject();
 
 private:
 	int windowHeight;
@@ -35,15 +32,9 @@ private:
 	const char *windowLabel;
 	GLFWwindow *window;
 	std::vector<GLFWkeyfun> registeredCallbacks;
-	std::vector<GraphicsObject*> objects; // TODO: this should be a collection of Graphics Objects - or better yet a Graphics Object Manager
+	GraphicsObjectManager objectManager;
 
 	int init();
 	bool setupGlfw();
 	bool setupGlew();
-	void initializeObjects();
-	void redrawObjects();
-	void deallocateObjects();
-	void addGraphicsObject(GraphicsObject *object) {
-		objects.push_back(object);
-	}
 };

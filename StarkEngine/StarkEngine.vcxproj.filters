@@ -66,6 +66,9 @@
     <ClInclude Include="GraphicsObject.h">
       <Filter>Header Files\OpenGLWraps</Filter>
     </ClInclude>
+    <ClInclude Include="GraphicsObjectManager.h">
+      <Filter>Header Files\OpenGLWraps</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vectortest.cxx">
@@ -90,6 +93,9 @@
       <Filter>Source Files\OpenGLWraps</Filter>
     </ClCompile>
     <ClCompile Include="GraphicsObject.cpp">
+      <Filter>Source Files\OpenGLWraps</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsObjectManager.cpp">
       <Filter>Source Files\OpenGLWraps</Filter>
     </ClCompile>
   </ItemGroup>

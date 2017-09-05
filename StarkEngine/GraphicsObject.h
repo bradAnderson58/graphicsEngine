@@ -6,6 +6,8 @@
 // GLFW
 #include <GLFW/glfw3.h>
 
+#include <string>
+
 class GraphicsObject {
 public:
 	GraphicsObject() {}

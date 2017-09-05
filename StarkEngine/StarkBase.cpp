@@ -1,8 +1,5 @@
 
 #include "StarkBase.h"
-#include "GraphicsObject.h"
-#include <fstream>
-#include <algorithm>
 
 using namespace std;
 
@@ -16,30 +13,26 @@ int StarkBase::init() {
 	return 0;
 }
 
-GraphicsObject* StarkBase::createNewGraphicsObject() {
-	GraphicsObject *object = new GraphicsObject();
-	//object.addVertexShader("../StarkEngine/default.vs");
-	//object.addFragmentShader("../StarkEngine/default.fs");
-	addGraphicsObject(object);
-	return object;
-}
-
 int StarkBase::run() {
 	for (GLFWkeyfun callback : registeredCallbacks) {
 		glfwSetKeyCallback(window, callback);
 	}
-	initializeObjects();
+	objectManager.initializeObjects();
 
 	// draw the object each iteration
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
-		redrawObjects();
+		objectManager.redrawObjects();
 		glfwSwapBuffers(window);
 	}
 
-	deallocateObjects();
+	objectManager.deallocateObjects();
 	glfwTerminate();
 	return 0;
+}
+
+GraphicsObject* StarkBase::createNewGraphicsObject() {
+	return objectManager.createNewGraphicsObject();
 }
 
 void StarkBase::setKeyCallback(void callback(GLFWwindow* window, int key, int scancode, int action, int mode)) {
@@ -78,22 +71,4 @@ bool StarkBase::setupGlew() {
 	glfwGetFramebufferSize(window, &width, &height);
 	glViewport(0, 0, width, height);
 	return true;
-}
-
-void StarkBase::initializeObjects() {
-	std::for_each(objects.begin(), objects.end(), [](GraphicsObject* object) {
-		object->init();
-	});
-}
-
-void StarkBase::redrawObjects() {
-	std::for_each(objects.begin(), objects.end(), [](GraphicsObject* object) {
-		object->redraw();
-	});
-}
-
-void StarkBase::deallocateObjects() {
-	std::for_each(objects.begin(), objects.end(), [](GraphicsObject* object) {
-		object->deallocate();
-	});
 }
