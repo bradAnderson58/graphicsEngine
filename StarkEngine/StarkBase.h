@@ -10,6 +10,7 @@
 #include <iostream>
 
 #include "GraphicsObjectManager.h"
+#include "Vector3.h"
 
 class StarkBase {
 public:
@@ -24,7 +25,7 @@ public:
 	int run();
 	void setKeyCallback(void callback(GLFWwindow* window, int key, int scancode, int action, int mode));
 
-	GraphicsObject* createNewGraphicsObject();
+	GraphicsObject* createNewGraphicsObject(std::vector<Vector3>);
 
 private:
 	int windowHeight;

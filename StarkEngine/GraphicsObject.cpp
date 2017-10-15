@@ -15,15 +15,9 @@ void GraphicsObject::init() {
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
-	// set up vertex data (and buffers) and attributes pointers 
-	GLfloat vertices[] = {
-		// first triangle
-		0.5f, 0.5f, 0.0f,		// top right
-		0.5f, -0.5f, 0.0f,		// bottom right
-		-0.5f, -0.5f, 0.0f,		// bottom left
-		-0.5f, 0.5f, 0.0f		// top left
-	};
-	// note that we start from 0
+	GLfloat* vertArray = new GLfloat[vertices.size() * 3];
+	fillVertArray(vertArray);
+	
 	GLuint indices[] = {
 		0, 1, 3,		// first triangle
 		1, 2, 3			// second triangle
@@ -38,7 +32,7 @@ void GraphicsObject::init() {
 	glBindVertexArray(vertexArrayObj);
 
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, computeVertSize(), vertArray, GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBufferObj);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
@@ -50,6 +44,8 @@ void GraphicsObject::init() {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);  // must unbind vao first
+
+	delete []vertArray;
 }
 
 void GraphicsObject::redraw() {
@@ -120,4 +116,14 @@ GLuint GraphicsObject::buildShaderProgram(GLuint vertexShader, GLuint fragmentSh
 	}
 
 	return shaderProgram;
+}
+
+
+void GraphicsObject::fillVertArray(GLfloat *vertArray) {
+	int index = 0;
+	for (Vector3 vector : vertices) {
+		vertArray[index++] = vector.x;
+		vertArray[index++] = vector.y;
+		vertArray[index++] = vector.z;
+	}
 }
