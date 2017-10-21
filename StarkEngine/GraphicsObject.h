@@ -13,7 +13,8 @@
 
 class GraphicsObject {
 public:
-	GraphicsObject(std::vector<Vector3> vertices) : vertices(vertices) { }
+	GraphicsObject(std::vector<Vector3> vertices, std::vector<int> indices) :
+		vertices(vertices), indices(indices) { }
 	void init();
 	void redraw();
 	void deallocate();
@@ -27,9 +28,12 @@ private:
 	GLuint vertexArrayObj;
 	GLuint vertexBufferObject;
 	std::vector<Vector3> vertices;
+	std::vector<int> indices;
 
 	GLuint buildShader(std::string filePath, GLenum shaderType);
 	GLuint buildShaderProgram(GLuint vertexShader, GLuint fragmentShader);
 	int computeVertSize() { return vertices.size() * 3 * sizeof(GLfloat); }
+	int computeIndexSize() { return indices.size() * sizeof(GLuint); }
 	void fillVertArray(GLfloat *vertArray);
+	void fillIndexArray(GLuint *indexArray);
 };

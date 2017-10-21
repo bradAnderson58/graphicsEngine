@@ -10,7 +10,7 @@ class GraphicsObjectManager {
 public:
 	GraphicsObjectManager() {}
 
-	GraphicsObject* createNewGraphicsObject(std::vector<Vector3> vertices);
+	GraphicsObject* createNewGraphicsObject(std::vector<Vector3> vertices, std::vector<int> indices);
 	void initializeObjects();
 	void redrawObjects();
 	void deallocateObjects();

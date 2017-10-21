@@ -34,8 +34,8 @@ int StarkBase::run() {
 	return 0;
 }
 
-GraphicsObject* StarkBase::createNewGraphicsObject(vector<Vector3> vertices) {
-	return objectManager.createNewGraphicsObject(vertices);
+GraphicsObject* StarkBase::createNewGraphicsObject(vector<Vector3> vertices, vector<int> indices) {
+	return objectManager.createNewGraphicsObject(vertices, indices);
 }
 
 void StarkBase::setKeyCallback(void callback(GLFWwindow* window, int key, int scancode, int action, int mode)) {

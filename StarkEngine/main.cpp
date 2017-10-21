@@ -9,14 +9,18 @@ using namespace std;
 int main() {
 	StarkBase *base = new StarkBase(800, 600, "Stark Engine Example");
 
-	vector<Vector3> points(4);
-	points[0] = Vector3(0.5f, 0.5f, 0.0f);
-	points[1] = Vector3(0.5f, -0.5f, 0.0f);
-	points[2] = Vector3(-0.5f, -0.5f, 0.0f);
-	points[3] = Vector3(-0.5f, 0.5f, 0.0f);
+	vector<Vector3> points = {
+		Vector3(0.5f, 0.5f, 0.0f),
+		Vector3(0.5f, -0.5f, 0.0f),
+		Vector3(-0.5f, -0.5f, 0.0f),
+		Vector3(-0.5f, 0.5f, 0.0f)
+	};
+	vector<int> indices = {
+		0, 1, 3,
+		1, 2, 3
+	};
 
-	// TODO: next time, also pass the indices of the points to make Graphics Object
-	GraphicsObject *object = base->createNewGraphicsObject(points);
+	GraphicsObject *object = base->createNewGraphicsObject(points, indices);
 	object->addVertexShader("../StarkEngine/default.vs");
 	object->addFragmentShader("../StarkEngine/default.fs");
 

@@ -6,8 +6,8 @@
 
 using namespace std;
 
-GraphicsObject* GraphicsObjectManager::createNewGraphicsObject(vector<Vector3> vertices) {
-	GraphicsObject *object = new GraphicsObject(vertices);
+GraphicsObject* GraphicsObjectManager::createNewGraphicsObject(vector<Vector3> vertices, vector<int> indices) {
+	GraphicsObject *object = new GraphicsObject(vertices, indices);
 	objects.push_back(object);
 	return object;
 }

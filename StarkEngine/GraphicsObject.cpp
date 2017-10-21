@@ -17,11 +17,8 @@ void GraphicsObject::init() {
 
 	GLfloat* vertArray = new GLfloat[vertices.size() * 3];
 	fillVertArray(vertArray);
-	
-	GLuint indices[] = {
-		0, 1, 3,		// first triangle
-		1, 2, 3			// second triangle
-	};
+	GLuint* indexArray = new GLuint[indices.size()];
+	fillIndexArray(indexArray);
 
 	GLuint elementBufferObj;
 	glGenVertexArrays(1, &vertexArrayObj);
@@ -34,7 +31,7 @@ void GraphicsObject::init() {
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
 	glBufferData(GL_ARRAY_BUFFER, computeVertSize(), vertArray, GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBufferObj);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, computeIndexSize(), indexArray, GL_STATIC_DRAW);
 
 	// then set the vertex attributes pointers
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
@@ -46,6 +43,7 @@ void GraphicsObject::init() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);  // must unbind vao first
 
 	delete []vertArray;
+	delete []indexArray;
 }
 
 void GraphicsObject::redraw() {
@@ -125,5 +123,12 @@ void GraphicsObject::fillVertArray(GLfloat *vertArray) {
 		vertArray[index++] = vector.x;
 		vertArray[index++] = vector.y;
 		vertArray[index++] = vector.z;
+	}
+}
+
+void GraphicsObject::fillIndexArray(GLuint *indexArray) {
+	int ind = 0;
+	for (int objIndex : indices) {
+		indexArray[ind++] = objIndex;
 	}
 }

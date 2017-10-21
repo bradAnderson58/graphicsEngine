@@ -25,7 +25,7 @@ public:
 	int run();
 	void setKeyCallback(void callback(GLFWwindow* window, int key, int scancode, int action, int mode));
 
-	GraphicsObject* createNewGraphicsObject(std::vector<Vector3>);
+	GraphicsObject* createNewGraphicsObject(std::vector<Vector3> vertices, std::vector<int> indices);
 
 private:
 	int windowHeight;
