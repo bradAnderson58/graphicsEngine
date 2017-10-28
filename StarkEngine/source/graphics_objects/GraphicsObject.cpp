@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "GraphicsObject.h"
+#include "headers/graphics_objects/GraphicsObject.h"
 
 using namespace std;
 

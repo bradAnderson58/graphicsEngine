@@ -1,5 +1,5 @@
 
-#include "Vector2.h"
+#include "headers/vector_math/Vector2.h"
 
 bool Vector2::operator==(const Vector2 &other)  const {
 	return (other.x == this->x && other.y == this->y);

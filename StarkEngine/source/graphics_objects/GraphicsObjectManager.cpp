@@ -1,5 +1,5 @@
 
-#include "GraphicsObjectManager.h"
+#include "headers/graphics_objects/GraphicsObjectManager.h"
 
 #include <algorithm>
 #include <vector>

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cxxtest/TestSuite.h>
-#include "MathFunctions.h"
+#include "headers/vector_math/MathFunctions.h"
 
 class MathFunctionsTest : public CxxTest::TestSuite {
 public:

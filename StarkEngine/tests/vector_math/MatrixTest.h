@@ -1,8 +1,8 @@
 #pragma once
 
 #include <cxxtest/TestSuite.h>
-#include "Matrix3.h"
-#include "Vector3.h"
+#include "headers/vector_math/Matrix3.h"
+#include "headers/vector_math/Vector3.h"
 
 class MatrixTest : public CxxTest::TestSuite {
 public:

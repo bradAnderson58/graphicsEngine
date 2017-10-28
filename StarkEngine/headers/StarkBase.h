@@ -9,8 +9,8 @@
 
 #include <iostream>
 
-#include "GraphicsObjectManager.h"
-#include "Vector3.h"
+#include "headers/graphics_objects/GraphicsObjectManager.h"
+#include "headers/vector_math/Vector3.h"
 
 class StarkBase {
 public:

@@ -36,74 +36,80 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VectorTest.h">
-      <Filter>Header Files\Tests</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector4.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="MatrixTest.h">
-      <Filter>Header Files\Tests</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix3.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="MathFunctions.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="MathFunctionsTest.h">
-      <Filter>Header Files\Tests</Filter>
-    </ClInclude>
-    <ClInclude Include="StarkBase.h">
-      <Filter>Header Files\OpenGLWraps</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsObject.h">
-      <Filter>Header Files\OpenGLWraps</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsObjectManager.h">
-      <Filter>Header Files\OpenGLWraps</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="vectortest.cxx">
-      <Filter>Source Files\GeneratedTests</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector4.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector2.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="MathFunctions.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StarkBase.cpp">
+    <ClCompile Include="source\vector_math\MathFunctions.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\vector_math\Vector2.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\vector_math\Vector3.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\vector_math\Vector4.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\graphics_objects\GraphicsObject.cpp">
       <Filter>Source Files\OpenGLWraps</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicsObject.cpp">
+    <ClCompile Include="source\graphics_objects\GraphicsObjectManager.cpp">
       <Filter>Source Files\OpenGLWraps</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicsObjectManager.cpp">
-      <Filter>Source Files\OpenGLWraps</Filter>
+    <ClCompile Include="source\StarkBase.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.vs">
+    <ClInclude Include="headers\vector_math\MathFunctions.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\vector_math\Matrix3.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\vector_math\Vector2.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\vector_math\Vector3.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\vector_math\Vector4.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\graphics_objects\GraphicsObject.h">
+      <Filter>Header Files\OpenGLWraps</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\graphics_objects\GraphicsObjectManager.h">
+      <Filter>Header Files\OpenGLWraps</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\graphics_objects\Plane.h">
+      <Filter>Header Files\OpenGLWraps</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\graphics_objects\Triangle.h">
+      <Filter>Header Files\OpenGLWraps</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\StarkBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\graphics_objects\TriangleTest.h">
+      <Filter>Header Files\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\vector_math\MathFunctionsTest.h">
+      <Filter>Header Files\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\vector_math\MatrixTest.h">
+      <Filter>Header Files\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\vector_math\VectorTest.h">
+      <Filter>Header Files\Tests</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\shaders\default.fs">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="default.fs">
+    <None Include="resource\shaders\default.vs">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

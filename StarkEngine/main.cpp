@@ -1,6 +1,7 @@
 
-#include "StarkBase.h"
-#include "Vector3.h"
+#include "headers/StarkBase.h"
+#include "headers/graphics_objects/GraphicsObject.h"
+#include "headers/vector_math/Vector3.h"
 
 #include <vector>
 
@@ -21,8 +22,8 @@ int main() {
 	};
 
 	GraphicsObject *object = base->createNewGraphicsObject(points, indices);
-	object->addVertexShader("../StarkEngine/default.vs");
-	object->addFragmentShader("../StarkEngine/default.fs");
+	object->addVertexShader("../StarkEngine/resource/shaders/default.vs");
+	object->addFragmentShader("../StarkEngine/resource/shaders/default.fs");
 
 	base->setKeyCallback([](GLFWwindow* window, int key, int scancode, int action, int mode) -> void {
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {

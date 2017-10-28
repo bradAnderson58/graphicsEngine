@@ -90,7 +90,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\VS_Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VS_Dependencies\include;D:\Projects\Books\Real_Time_Rendering\StarkEngine\StarkEngine\StarkEngine\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,32 +150,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GraphicsObject.h" />
-    <ClInclude Include="GraphicsObjectManager.h" />
-    <ClInclude Include="StarkBase.h" />
-    <ClInclude Include="MathFunctions.h" />
-    <ClInclude Include="MathFunctionsTest.h" />
-    <ClInclude Include="Matrix3.h" />
-    <ClInclude Include="MatrixTest.h" />
-    <ClInclude Include="Vector2.h" />
-    <ClInclude Include="Vector3.h" />
-    <ClInclude Include="Vector4.h" />
-    <ClInclude Include="VectorTest.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="GraphicsObject.cpp" />
-    <ClCompile Include="GraphicsObjectManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MathFunctions.cpp" />
-    <ClCompile Include="StarkBase.cpp" />
-    <ClCompile Include="Vector2.cpp" />
-    <ClCompile Include="Vector3.cpp" />
-    <ClCompile Include="Vector4.cpp" />
-    <ClCompile Include="vectortest.cxx" />
+    <ClCompile Include="source\graphics_objects\GraphicsObject.cpp" />
+    <ClCompile Include="source\graphics_objects\GraphicsObjectManager.cpp" />
+    <ClCompile Include="source\StarkBase.cpp" />
+    <ClCompile Include="source\vector_math\MathFunctions.cpp" />
+    <ClCompile Include="source\vector_math\Vector2.cpp" />
+    <ClCompile Include="source\vector_math\Vector3.cpp" />
+    <ClCompile Include="source\vector_math\Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.fs" />
-    <None Include="default.vs" />
+    <ClInclude Include="headers\graphics_objects\GraphicsObject.h" />
+    <ClInclude Include="headers\graphics_objects\GraphicsObjectManager.h" />
+    <ClInclude Include="headers\graphics_objects\Plane.h" />
+    <ClInclude Include="headers\graphics_objects\Triangle.h" />
+    <ClInclude Include="headers\StarkBase.h" />
+    <ClInclude Include="headers\vector_math\MathFunctions.h" />
+    <ClInclude Include="headers\vector_math\Matrix3.h" />
+    <ClInclude Include="headers\vector_math\Vector2.h" />
+    <ClInclude Include="headers\vector_math\Vector3.h" />
+    <ClInclude Include="headers\vector_math\Vector4.h" />
+    <ClInclude Include="tests\graphics_objects\TriangleTest.h" />
+    <ClInclude Include="tests\vector_math\MathFunctionsTest.h" />
+    <ClInclude Include="tests\vector_math\MatrixTest.h" />
+    <ClInclude Include="tests\vector_math\VectorTest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\shaders\default.fs" />
+    <None Include="resource\shaders\default.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

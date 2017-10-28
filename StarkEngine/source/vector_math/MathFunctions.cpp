@@ -1,5 +1,5 @@
 
-#include "MathFunctions.h"
+#include "headers/vector_math/MathFunctions.h"
 #include <cmath>
 
 int MathFunctions::factorial(int n) {  // TODO: Memoize this

@@ -1,9 +1,9 @@
 #pragma once
 
 #include <cxxtest/TestSuite.h>
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Vector4.h"
+#include "headers/vector_math/Vector2.h"
+#include "headers/vector_math/Vector3.h"
+#include "headers/vector_math/Vector4.h"
 
 class VectorTest : public CxxTest::TestSuite {
 public:

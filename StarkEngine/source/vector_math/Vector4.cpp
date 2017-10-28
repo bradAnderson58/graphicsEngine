@@ -1,5 +1,5 @@
 
-#include "Vector4.h"
+#include "headers/vector_math/Vector4.h"
 
 bool Vector4::operator==(const Vector4 &other)  const {
 	return (other.x == this->x && other.y == this->y && other.z == this->z && other.w == this->w);
