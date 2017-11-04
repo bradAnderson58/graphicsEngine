@@ -13,6 +13,10 @@ int StarkBase::init() {
 	if (!setupGlew()) {
 		return -1;
 	}
+	// testing purposes
+	int nrAttributes;
+	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
+	cout << "Maximum nr of vertex attributes supported: " << nrAttributes << '\n';
 	return 0;
 }
 
