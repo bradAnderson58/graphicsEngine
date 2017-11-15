@@ -55,6 +55,10 @@
 		B58676CA1FBC860C00C8CC49 /* Vector2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2.cpp; sourceTree = "<group>"; };
 		B58676CC1FBC862900C8CC49 /* Vector3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		B58676CE1FBC864100C8CC49 /* Vector4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4.cpp; sourceTree = "<group>"; };
+		B58676D31FBC8FCD00C8CC49 /* TriangleTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleTest.h; sourceTree = "<group>"; };
+		B58676D51FBC8FED00C8CC49 /* MathFunctionsTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathFunctionsTest.h; sourceTree = "<group>"; };
+		B58676D61FBC8FFD00C8CC49 /* MatrixTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatrixTest.h; sourceTree = "<group>"; };
+		B58676D71FBC900F00C8CC49 /* VectorTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VectorTest.h; sourceTree = "<group>"; };
 		B5CEF49E1FBAB8360084F32E /* graphicsEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = graphicsEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CEF4A11FBAB8360084F32E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B5CEF4AA1FBABA120084F32E /* StarkBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarkBase.h; sourceTree = "<group>"; };
@@ -147,6 +151,33 @@
 			path = vector_math;
 			sourceTree = "<group>";
 		};
+		B58676D11FBC8F7600C8CC49 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				B58676D41FBC8FD900C8CC49 /* vector_math */,
+				B58676D21FBC8FB000C8CC49 /* graphics_objects */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		B58676D21FBC8FB000C8CC49 /* graphics_objects */ = {
+			isa = PBXGroup;
+			children = (
+				B58676D31FBC8FCD00C8CC49 /* TriangleTest.h */,
+			);
+			path = graphics_objects;
+			sourceTree = "<group>";
+		};
+		B58676D41FBC8FD900C8CC49 /* vector_math */ = {
+			isa = PBXGroup;
+			children = (
+				B58676D51FBC8FED00C8CC49 /* MathFunctionsTest.h */,
+				B58676D61FBC8FFD00C8CC49 /* MatrixTest.h */,
+				B58676D71FBC900F00C8CC49 /* VectorTest.h */,
+			);
+			path = vector_math;
+			sourceTree = "<group>";
+		};
 		B5CEF4951FBAB8360084F32E = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +199,7 @@
 		B5CEF4A01FBAB8360084F32E /* graphicsEngine */ = {
 			isa = PBXGroup;
 			children = (
+				B58676D11FBC8F7600C8CC49 /* tests */,
 				B58676BF1FBC852600C8CC49 /* source */,
 				B58676B91FBC844000C8CC49 /* resource */,
 				B5CEF4A81FBAB9070084F32E /* headers */,
