@@ -23,3 +23,4 @@ public:
         TS_ASSERT_EQUALS(defaultmatrix.vec2, tvec2);
     }
 };
+

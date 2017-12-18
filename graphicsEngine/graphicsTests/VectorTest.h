@@ -121,3 +121,4 @@ public:
         TS_ASSERT_EQUALS(answer, Vector2(-5.0f, 1.0f));
     }
 };
+

@@ -7,4 +7,8 @@ public:
         TS_ASSERT(1 + 1 > 1);
         TS_ASSERT_EQUALS(1 + 1, 2);
     }
+    
+    void testTwo(void) {
+        TS_ASSERT_EQUALS(1, 2);
+    }
 };

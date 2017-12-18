@@ -119,5 +119,43 @@ public:
  void runTest() { suite_VectorTest.testPerpendicular(); }
 } testDescription_suite_VectorTest_testPerpendicular;
 
+#include "vector_math/MathFunctionsTest.h"
+
+static MathFunctionsTest suite_MathFunctionsTest;
+
+static CxxTest::List Tests_MathFunctionsTest = { 0, 0 };
+CxxTest::StaticSuiteDescription suiteDescription_MathFunctionsTest( "/Users/bradanderson/projects/books/Real_Time_Rendering/graphicsEngine/graphicsEngine/graphicsTests/vector_math/MathFunctionsTest.h", 6, "MathFunctionsTest", suite_MathFunctionsTest, Tests_MathFunctionsTest );
+
+static class TestDescription_suite_MathFunctionsTest_testFactorialFunction : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_MathFunctionsTest_testFactorialFunction() : CxxTest::RealTestDescription( Tests_MathFunctionsTest, suiteDescription_MathFunctionsTest, 8, "testFactorialFunction" ) {}
+ void runTest() { suite_MathFunctionsTest.testFactorialFunction(); }
+} testDescription_suite_MathFunctionsTest_testFactorialFunction;
+
+static class TestDescription_suite_MathFunctionsTest_testBinomialFactorialFunction : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_MathFunctionsTest_testBinomialFactorialFunction() : CxxTest::RealTestDescription( Tests_MathFunctionsTest, suiteDescription_MathFunctionsTest, 20, "testBinomialFactorialFunction" ) {}
+ void runTest() { suite_MathFunctionsTest.testBinomialFactorialFunction(); }
+} testDescription_suite_MathFunctionsTest_testBinomialFactorialFunction;
+
+static class TestDescription_suite_MathFunctionsTest_testClampedCosine : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_MathFunctionsTest_testClampedCosine() : CxxTest::RealTestDescription( Tests_MathFunctionsTest, suiteDescription_MathFunctionsTest, 34, "testClampedCosine" ) {}
+ void runTest() { suite_MathFunctionsTest.testClampedCosine(); }
+} testDescription_suite_MathFunctionsTest_testClampedCosine;
+
+#include "vector_math/MatrixTest.h"
+
+static MatrixTest suite_MatrixTest;
+
+static CxxTest::List Tests_MatrixTest = { 0, 0 };
+CxxTest::StaticSuiteDescription suiteDescription_MatrixTest( "/Users/bradanderson/projects/books/Real_Time_Rendering/graphicsEngine/graphicsEngine/graphicsTests/vector_math/MatrixTest.h", 7, "MatrixTest", suite_MatrixTest, Tests_MatrixTest );
+
+static class TestDescription_suite_MatrixTest_testMatrix3Construction : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_MatrixTest_testMatrix3Construction() : CxxTest::RealTestDescription( Tests_MatrixTest, suiteDescription_MatrixTest, 9, "testMatrix3Construction" ) {}
+ void runTest() { suite_MatrixTest.testMatrix3Construction(); }
+} testDescription_suite_MatrixTest_testMatrix3Construction;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
