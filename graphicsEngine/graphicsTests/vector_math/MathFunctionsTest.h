@@ -40,4 +40,3 @@ public:
         TS_ASSERT_EQUALS(cos10, 0);
     }
 };
-
