@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main() {
+int main_0() {
     StarkBase *base = new StarkBase(800, 600, "Stark Engine Example");
     
     vector<Vector3> points = {
@@ -33,4 +33,6 @@ int main() {
         }
     });
     base->run();
+    
+    return 0;
 }

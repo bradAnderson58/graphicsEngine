@@ -26,6 +26,7 @@ bld/
 *.vcxproj.filters
 *.vcxproj.user
 *.sln
+TestResults.xml
 
 # MAC xCode stuff
 *.xcodeproj/
