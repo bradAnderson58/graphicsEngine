@@ -4,10 +4,11 @@
 
 #include <vector>
 #include <unistd.h>
+#include <cmath>
 
 using namespace std;
 
-int main_0() {
+int main() {
     StarkBase *base = new StarkBase(800, 600, "Stark Engine Example");
     
     vector<Vector3> points = {
@@ -24,8 +25,12 @@ int main_0() {
     GraphicsObject *object = base->createNewGraphicsObject(points, indices);
     // xCode is putting my working directory far away, had to set custom working directory
     // TODO: set up resource folder instead
-    object->addVertexShader("resource/shaders/redShader.vs");
-    object->addFragmentShader("resource/shaders/redShader.fs");
+    object->addVertexShader("resource/shaders/default.vs");
+    object->addFragmentShader("resource/shaders/default.fs");
+    object->bindRenderColorCallback([]() -> float {
+        float timeValue = glfwGetTime();
+        return (sin(timeValue) / 2.0f) + 0.5f;
+    });
     
     base->setKeyCallback([](GLFWwindow* window, int key, int scancode, int action, int mode) -> void {
         if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {

@@ -12,7 +12,7 @@ int StarkBase::init() {
     if (!setupGlew()) {
         return -1;
     }
-    // testing purposes
+    // TODO: testing purposes, remove
     int nrAttributes;
     glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
     cout << "Maximum nr of vertex attributes supported: " << nrAttributes << '\n';
@@ -25,7 +25,7 @@ int StarkBase::run() {
     }
     objectManager.initializeObjects();
     
-    // draw the object each iteration
+    // draw the objects each iteration
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
         objectManager.redrawObjects();

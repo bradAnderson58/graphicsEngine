@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#include <functional>
 
 class GraphicsObject {
 public:
@@ -20,6 +21,9 @@ public:
     void deallocate();
     void addVertexShader(std::string filePath);
     void addFragmentShader(std::string filePath);
+    void bindRenderColorCallback(std::function<float()> fn) {
+        renderColorCallback = std::bind(fn);
+    }
     
 private:
     std::string vertexShaderFile;
@@ -29,11 +33,12 @@ private:
     GLuint vertexBufferObject;
     std::vector<Vector3> vertices;
     std::vector<int> indices;
+    std::function<float()> renderColorCallback;
     
     GLuint buildShader(std::string filePath, GLenum shaderType);
     GLuint buildShaderProgram(GLuint vertexShader, GLuint fragmentShader);
-    int computeVertSize() { return vertices.size() * 3 * sizeof(GLfloat); }
-    int computeIndexSize() { return indices.size() * sizeof(GLuint); }
+    unsigned long computeVertSize() { return vertices.size() * 3 * sizeof(GLfloat); }
+    unsigned long computeIndexSize() { return indices.size() * sizeof(GLuint); }
     void fillVertArray(GLfloat *vertArray);
     void fillIndexArray(GLuint *indexArray);
 };
